@@ -1,37 +1,24 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './Components/Login';
-import Signup from './Components/Signup';
-import Dashboard from './Components/Dashboard';
-import AdminPanel from './Components/AdminPanel';
-import ProtectedRoute from './Components/ProtectedRoute';
-
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Auth/Login.js';  // Added .js
+import Signup from './components/Auth/Signup.js';  // Added .js
+import UserDashboard from './components/pages/UserDashboard.js';  // Added .js
+import AdminDashboard from './components/pages/AdminDashboard.js';  // Added .js
+import { AuthProvider } from './components/context/AuthContext.js';  // Added .js
+import PrivateRoute from './components/PrivateRoute.js';  // Added .js
 
 function App() {
   return (
     <Router>
-    
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute adminOnly>
-              <AdminPanel />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/user-dashboard" element={<PrivateRoute><UserDashboard /></PrivateRoute>} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </AuthProvider>
     </Router>
   );
 }

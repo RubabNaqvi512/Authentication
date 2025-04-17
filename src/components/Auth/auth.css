@@ -1,0 +1,227 @@
+:root {
+    /* Primary Colors */
+    --primary: #3498db;       /* Vibrant blue */
+    --primary-dark: #2980b9;  /* Darker blue */
+    --primary-light: #ecf0f1; /* Light background */
+    
+    /* Secondary Colors */
+    --secondary: #2c3e50;     /* Dark blue-gray */
+    --secondary-light: #34495e; /* Lighter dark blue */
+    
+    /* Accent Colors */
+    --accent: #e74c3c;        /* Red for important actions */
+    --accent-light: #f39c12;  /* Orange for notifications */
+    
+    /* Status Colors */
+    --success: #2ecc71;       /* Green for success */
+    --warning: #f1c40f;       /* Yellow for warnings */
+    --error: #e74c3c;         /* Red for errors */
+    
+    /* Neutral Colors */
+    --light: #ecf0f1;         /* Light background */
+    --dark: #2c3e50;          /* Dark text */
+    --gray: #95a5a6;          /* Gray elements */
+    --light-gray: #bdc3c7;    /* Light gray */
+    
+    /* Text Colors */
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --text-light: #ecf0f1;
+  }
+  .auth-container {
+    max-width: 450px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .auth-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .auth-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+  }
+  
+  .auth-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+  }
+  
+  .form-group input {
+    width: 87%;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: var(--light);
+  }
+  
+  .form-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  }
+  
+  /* Add icons to form inputs */
+  .form-group::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 1rem;
+    top: 2.5rem;
+    color: var(--gray);
+  }
+  
+  .email-input::before {
+    content: '\f0e0'; /* envelope icon */
+  }
+  
+  .password-input::before {
+    content: '\f023'; /* lock icon */
+  }
+  
+  .name-input::before {
+    content: '\f007'; /* user icon */
+  }.auth-button {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .auth-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+  }
+  
+  .auth-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  }
+  
+  .auth-button:hover::after {
+    left: 100%;
+  }
+  
+  .auth-button:active {
+    transform: translateY(0);
+  }
+  
+  .auth-button:disabled {
+    background: var(--gray);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .auth-button:disabled::after {
+    display: none;
+  }.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: var(--primary-light);
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dfe6e9;
+  }
+  
+  .dashboard-header h1 {
+    color: var(--secondary);
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  .notification-badge {
+    background: var(--accent);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 15px;
+  }@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  /* Add to elements that should animate in */
+  .animate-in {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+  
+  /* For important notifications */
+  .pulse {
+    animation: pulse 2s infinite;
+  }
