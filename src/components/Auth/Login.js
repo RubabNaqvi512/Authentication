@@ -42,13 +42,15 @@ const Login = () => {
         case 'auth/too-many-requests':
           errorMessage = 'Too many attempts. Account temporarily locked.';
           break;
+        default:
+          errorMessage = 'Login failed. Please try again.';
+          break;
       }
       setError(errorMessage);
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <div className="auth-container">
       <h2>Welcome Back</h2>
